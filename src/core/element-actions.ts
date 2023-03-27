@@ -2,6 +2,13 @@ import { driverInstance } from "./driver";
 
 export class ElementActions {
 
+    static async search(locator: string, text: string): Promise<void> {
+        console.log(locator)
+        await driverInstance.Page.waitForSelector(locator);
+        await driverInstance.Page.click(locator);
+        await driverInstance.Page.fill(locator, text);
+    }
+
     static async click(locator: string) {
         await driverInstance.Page.waitForSelector(locator);
         await driverInstance.Page.click(locator);

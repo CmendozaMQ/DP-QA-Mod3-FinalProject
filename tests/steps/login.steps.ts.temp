@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { TESTDATA } from "../../config.app";
 import { driverInstance } from "../../src/core/driver";
 import { headerPage } from "../../src/pages/components/header.page";
-import { loginPage } from "../../src/pages/login.page";
+import { loginPage } from "../../src/pages/login.page.ts.temp";
 //import { expect } from 'chai';
 
 setDefaultTimeout(60 * 1000);
