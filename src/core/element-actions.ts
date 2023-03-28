@@ -5,8 +5,9 @@ export class ElementActions {
     static async search(locator: string, text: string): Promise<void> {
         console.log(locator)
         await driverInstance.Page.waitForSelector(locator);
-        await driverInstance.Page.click(locator);
+        // await driverInstance.Page.click(locator);
         await driverInstance.Page.fill(locator, text);
+        await driverInstance.Page.press(locator, 'Enter');
     }
 
     static async click(locator: string) {

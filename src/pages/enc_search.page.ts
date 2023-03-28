@@ -4,18 +4,20 @@ import { BasePage } from "./base.page";
 const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-const tie=1000;
+const tie=2000;
 
 class encuentralos_search extends BasePage {
     private searchField: string = '//input[@placeholder="Buscar.."]';   
     private nosotros: string ='//span[normalize-space()="NOSOTROS"]';
     private historias: string ='//span[normalize-space()="HISTORIAS"]';
+    
     constructor(){
         super();
     }
 
     async searchByName(text: string){
         await ElementActions.search(this.searchField, text);
+        await sleep(tie);
     }
 
     async nosotrosOption(){
