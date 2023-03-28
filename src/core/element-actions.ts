@@ -1,3 +1,4 @@
+import { LabelName } from "allure-js-commons";
 import { driverInstance } from "./driver";
 
 export class ElementActions {
@@ -8,6 +9,16 @@ export class ElementActions {
         // await driverInstance.Page.click(locator);
         await driverInstance.Page.fill(locator, text);
         await driverInstance.Page.press(locator, 'Enter');
+    }
+
+    static async selectStatus(locatorField: string, locatorStatus: string): Promise<void> {        
+        // // await driverInstance.Page.click(locatorField);
+        // // await driverInstance.Page.click(locatorStatus);
+        // const dropdownButton = await driverInstance.Page.$(locatorField);
+        // await driverInstance.Page.dropdownButton.click();
+        // await dropdown.selectOption(locatorField, LabelName: locatorStatus)
+        // console.log(locatorField);
+        // console.log(locatorStatus);
     }
 
     static async click(locator: string) {

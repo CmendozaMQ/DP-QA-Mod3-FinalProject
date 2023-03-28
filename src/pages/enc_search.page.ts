@@ -10,6 +10,7 @@ class encuentralos_search extends BasePage {
     private searchField: string = '//input[@placeholder="Buscar.."]';   
     private nosotros: string ='//span[normalize-space()="NOSOTROS"]';
     private historias: string ='//span[normalize-space()="HISTORIAS"]';
+    private statusField: string = '//button[@name="Seleccionar Estado"]'
     
     constructor(){
         super();
@@ -18,6 +19,16 @@ class encuentralos_search extends BasePage {
     async searchByName(text: string){
         await ElementActions.search(this.searchField, text);
         await sleep(tie);
+    }
+
+    async searchByStatus(searchStatus: string){
+        // const dropdownButton = await Page.$(locatorField);
+        // // searchStatus = `//button[@class='dropdown-item'][normalize-space()='${searchStatus}']`;
+        // // searchStatus = `//button[normalize-space()='${searchStatus}']`;
+        // await ElementActions.selectStatus(this.statusField, searchStatus);
+        // // await ElementActions.click(this.statusField);
+        // // await ElementActions.click(searchStatus);
+        // await sleep(tie);
     }
 
     async nosotrosOption(){
@@ -51,4 +62,4 @@ class encuentralos_search extends BasePage {
     // }
 }
 
-export const enc_earch = new encuentralos_search();
+export const enc_search = new encuentralos_search();

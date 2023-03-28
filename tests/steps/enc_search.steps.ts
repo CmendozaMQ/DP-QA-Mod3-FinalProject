@@ -2,7 +2,8 @@ import { Given, setDefaultTimeout, Then, When,  } from "@cucumber/cucumber";
 import { Context } from "../../cucumber.config";
 // import { expect } from "chai";
 import { TESTDATA } from "../../config.app";
-import { enc_earch } from "../../src/pages/enc_search.page";
+import { enc_search } from "../../src/pages/enc_search.page";
+import { enc_content } from "../../src/pages/enc_content.page";
 
 //import { expect } from 'chai';
 
@@ -10,15 +11,33 @@ setDefaultTimeout(60 * 1000);
 
 Given('the user sets the value {string} in the buscar field to search by name', async function (this: Context, searchName: string) {
     this.scenarioContext['SEARCHNAME'] = searchName;
-    await enc_earch.searchByName(searchName);
+    await enc_search.searchByName(searchName);
+});
+
+When('the user select the estado de al persona as {string}', async function (this: Context, searchStatus: string) {
+    this.scenarioContext['SEARCHSTATUS'] = searchStatus;
+    await enc_search.searchByStatus(searchStatus);
+});
+
+When('the user select the persona desaparecida as {string}', async function () {
+    
+});
+When('the user select the busqueda por departamento as {string}', async function () {
+    
+});
+
+Then('the user should see an item with the name filter in the page', async function () {
+    await enc_content.validateName();
 });
 
 Given('the user click the nosotros option', async function () {
-    await enc_earch.nosotrosOption();
+    await enc_search.nosotrosOption();
 });
 
 Given('the user click the historias option', async function () {
-    await enc_earch.historiasOption();
+    await enc_search.historiasOption();
 });
+
+
 
 
