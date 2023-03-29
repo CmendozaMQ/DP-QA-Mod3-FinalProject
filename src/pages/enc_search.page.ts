@@ -4,13 +4,16 @@ import { BasePage } from "./base.page";
 const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-const tie=2000;
+const tie=0;
 
 class encuentralos_search extends BasePage {
     private searchField: string = '//input[@placeholder="Buscar.."]';   
     private nosotros: string ='//span[normalize-space()="NOSOTROS"]';
     private historias: string ='//span[normalize-space()="HISTORIAS"]';
-    private statusField: string = '//button[@name="Seleccionar Estado"]'
+    // private statusField: string = '//button[@name="Seleccionar Estado"]';
+    private statusField: string = 'Desaparecidas';
+    private periodField: string = 'Seleccionar Periodo';
+    private departmentField: string = 'Seleccionar Departamento';
     
     constructor(){
         super();
@@ -21,14 +24,19 @@ class encuentralos_search extends BasePage {
         await sleep(tie);
     }
 
-    async searchByStatus(searchStatus: string){
-        // const dropdownButton = await Page.$(locatorField);
-        // // searchStatus = `//button[@class='dropdown-item'][normalize-space()='${searchStatus}']`;
-        // // searchStatus = `//button[normalize-space()='${searchStatus}']`;
-        // await ElementActions.selectStatus(this.statusField, searchStatus);
-        // // await ElementActions.click(this.statusField);
-        // // await ElementActions.click(searchStatus);
-        // await sleep(tie);
+    async searchByStatus(text: string){
+        await ElementActions.selectStatus(this.statusField, text);
+        await sleep(tie);
+    }
+
+    async searchByPeriod(text: string){
+        await ElementActions.selectPeriod(this.periodField, text);
+        await sleep(tie);
+    }
+
+    async searchByDepartment(text: string){
+        await ElementActions.selectDepartment(this.departmentField, text);
+        await sleep(tie);
     }
 
     async nosotrosOption(){

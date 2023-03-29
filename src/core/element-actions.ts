@@ -12,13 +12,24 @@ export class ElementActions {
     }
 
     static async selectStatus(locatorField: string, locatorStatus: string): Promise<void> {        
-        // // await driverInstance.Page.click(locatorField);
-        // // await driverInstance.Page.click(locatorStatus);
-        // const dropdownButton = await driverInstance.Page.$(locatorField);
-        // await driverInstance.Page.dropdownButton.click();
-        // await dropdown.selectOption(locatorField, LabelName: locatorStatus)
-        // console.log(locatorField);
-        // console.log(locatorStatus);
+        console.log(locatorField);       
+        console.log(locatorStatus);
+        await driverInstance.Page.getByRole('button', { name: locatorField }).click();
+        await driverInstance.Page.getByRole('button', { name: locatorStatus }).click();
+    }
+
+    static async selectPeriod(locatorField: string, locatorStatus: string): Promise<void> {        
+        console.log(locatorField);       
+        console.log(locatorStatus);
+        await driverInstance.Page.locator(`button[name="${locatorField}"]`).click();
+        await driverInstance.Page.getByRole('button', { name: locatorStatus }).click();
+    }
+
+    static async selectDepartment(locatorField: string, locatorStatus: string): Promise<void> {        
+        console.log(locatorField);       
+        console.log(locatorStatus);
+        await driverInstance.Page.locator(`button[name="${locatorField}"]`).click();
+        await driverInstance.Page.getByRole('button', { name: locatorStatus }).click();
     }
 
     static async click(locator: string) {
