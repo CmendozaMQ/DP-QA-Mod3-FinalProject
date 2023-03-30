@@ -50,6 +50,18 @@ class encuentralos_search extends BasePage {
         await ElementActions.click(this.historias);
         await sleep(tie);
     }
+    //Filters options  FilterByOption
+    async FilterByOption(textFilter: string, textOption: string){
+        await ElementActions.Filter(textFilter, textOption);
+        await sleep(tie);
+    }
+
+    async FilterByOptionContexture(textFilter: string, textOption: string){
+        await ElementActions.FilterContexture(textFilter, textOption);
+        await sleep(tie);
+    }
+
+    //end filters options
 
     // async setEmail(text: string) {        
     //     await ElementActions.setText(this.email, text);

@@ -32,6 +32,24 @@ Then('the user should see an item with the name filter in the page', async funct
     await enc_content.validateName();
 });
 
+//FILTER by characteristics
+
+When('the user select the filter {string} selecting the value {string}', async function (this: Context, filterName: string, filterOption: string) {
+    this.scenarioContext['FILTERNAME'] = filterName;
+    this.scenarioContext['FILTEROPTION'] = filterOption;
+    await enc_search.FilterByOption(filterName, filterOption);
+});
+
+// And the user select the filter "Contextura" selecting the value "Delgada"
+When('the user select the filter {string} option selecting the value {string}', async function (this: Context, filterName: string, filterOption: string) {
+    this.scenarioContext['FILTERNAME'] = filterName;
+    this.scenarioContext['FILTEROPTION'] = filterOption;
+    await enc_search.FilterByOptionContexture(filterName, filterOption);
+});
+
+
+//END FILTER by characteristics
+
 Given('the user click the nosotros option', async function () {
     await enc_search.nosotrosOption();
 });

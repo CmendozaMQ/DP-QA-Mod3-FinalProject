@@ -15,6 +15,10 @@ export class Driver {
         this.browser = await browserInstance.launch(
         {
             headless: false,
+            // viewport: { 
+            //     width: 1920, 
+            //     height: 1080 
+            // }            
             // slowMo: 100
         }
         );

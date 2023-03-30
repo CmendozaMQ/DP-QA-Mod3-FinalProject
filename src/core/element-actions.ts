@@ -31,6 +31,23 @@ export class ElementActions {
         await driverInstance.Page.locator(`button[name="${locatorField}"]`).click();
         await driverInstance.Page.getByRole('button', { name: locatorStatus }).click();
     }
+    //filters options    await page.getByRole('button', { name: 'Genero' }).click();
+    //                   await page.getByRole('button', { name: 'Femenino' }).click();
+    static async Filter(locatorFilter: string, locatorOption: string): Promise<void> {        
+        console.log(locatorFilter);       
+        console.log(locatorOption);
+        await driverInstance.Page.getByRole('button', { name: locatorFilter }).click();
+        await driverInstance.Page.getByRole('button', { name: locatorOption }).click();
+    }
+
+    // await page.getByRole('button', { name: 'Contextura', exact: true }).click();
+    static async FilterContexture(locatorFilter: string, locatorOption: string): Promise<void> {        
+        console.log(locatorFilter);       
+        console.log(locatorOption);
+        await driverInstance.Page.getByRole('button', { name: locatorFilter, exact: true }).click();
+        await driverInstance.Page.getByRole('button', { name: locatorOption }).click();
+    }
+    //filters options
 
     static async click(locator: string) {
         await driverInstance.Page.waitForSelector(locator);
