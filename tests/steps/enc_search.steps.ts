@@ -41,11 +41,11 @@ When('the user select the filter {string} selecting the value {string}', async f
 });
 
 // And the user select the filter "Contextura" selecting the value "Delgada"
-When('the user select the filter {string} option selecting the value {string}', async function (this: Context, filterName: string, filterOption: string) {
-    this.scenarioContext['FILTERNAME'] = filterName;
-    this.scenarioContext['FILTEROPTION'] = filterOption;
-    await enc_search.FilterByOptionContexture(filterName, filterOption);
-});
+// When('the user select the filter {string} option selecting the value {string}', async function (this: Context, filterName: string, filterOption: string) {
+//     this.scenarioContext['FILTERNAME'] = filterName;
+//     this.scenarioContext['FILTEROPTION'] = filterOption;
+//     await enc_search.FilterByOptionContexture(filterName, filterOption);
+// });
 
 
 //END FILTER by characteristics

@@ -15,15 +15,15 @@ export class Driver {
         this.browser = await browserInstance.launch(
         {
             headless: false,
-            // viewport: { 
-            //     width: 1920, 
-            //     height: 1080 
-            // }            
             // slowMo: 100
         }
         );
         this.context = await this.browser.newContext();
         this.page = await this.context.newPage();
+        this.page.setViewportSize({ 
+            width: 1920, 
+            height: 1080
+        }); 
         await this.page.goto(url);
     }
 

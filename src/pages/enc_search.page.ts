@@ -1,10 +1,11 @@
+import { driverInstance } from "../core/driver";
 import { ElementActions } from "../core/element-actions";
 import { BasePage } from "./base.page";
 
 const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-const tie=0;
+const tie=1000;
 
 class encuentralos_search extends BasePage {
     private searchField: string = '//input[@placeholder="Buscar.."]';   
@@ -20,22 +21,36 @@ class encuentralos_search extends BasePage {
     }
 
     async searchByName(text: string){
-        await ElementActions.search(this.searchField, text);
+        console.log(text)
+        await driverInstance.Page.waitForSelector(this.searchField);
+        await driverInstance.Page.fill(this.searchField, text);
+        await driverInstance.Page.press(this.searchField, 'Enter');
         await sleep(tie);
     }
 
     async searchByStatus(text: string){
-        await ElementActions.selectStatus(this.statusField, text);
+        console.log(this.statusField);       
+        console.log(text);
+        await driverInstance.Page.getByRole('button', { name: this.statusField }).click();
+        await driverInstance.Page.getByRole('button', { name: text }).click();
         await sleep(tie);
     }
 
     async searchByPeriod(text: string){
-        await ElementActions.selectPeriod(this.periodField, text);
+        console.log(this.periodField);       
+        console.log(text);
+        await driverInstance.Page.locator(`button[name="${this.periodField}"]`).click();
+        await driverInstance.Page.getByRole('button', { name: text }).click();
+        // await ElementActions.selectPeriod(this.periodField, text);
         await sleep(tie);
     }
 
     async searchByDepartment(text: string){
-        await ElementActions.selectDepartment(this.departmentField, text);
+        console.log(this.departmentField);       
+        console.log(text);
+        await driverInstance.Page.locator(`button[name="${this.departmentField}"]`).click();
+        await driverInstance.Page.getByRole('button', { name: text }).click();
+        // await ElementActions.selectDepartment(this.departmentField, text);
         await sleep(tie);
     }
 
@@ -52,14 +67,22 @@ class encuentralos_search extends BasePage {
     }
     //Filters options  FilterByOption
     async FilterByOption(textFilter: string, textOption: string){
-        await ElementActions.Filter(textFilter, textOption);
+        console.log(textFilter);       
+        console.log(textOption);
+        if(textFilter == "Contextura"){
+            await driverInstance.Page.getByRole('button', { name: textFilter, exact: true }).click();
+        }
+        else{
+            await driverInstance.Page.getByRole('button', { name: textFilter }).click();
+        }        
+        await driverInstance.Page.getByRole('button', { name: textOption }).click();
         await sleep(tie);
     }
 
-    async FilterByOptionContexture(textFilter: string, textOption: string){
-        await ElementActions.FilterContexture(textFilter, textOption);
-        await sleep(tie);
-    }
+    // async FilterByOptionContexture(textFilter: string, textOption: string){
+    //     await ElementActions.FilterContexture(textFilter, textOption);
+    //     await sleep(tie);
+    // }
 
     //end filters options
 

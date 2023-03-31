@@ -7,7 +7,7 @@ Background: open the web page and test the filters option by Characteristics
 # @delete-project-api
 Scenario: Filter a card item by characteristics 
     Given the user select the filter "Genero" selecting the value "Femenino"
-    And the user select the filter "Contextura" option selecting the value "Delgada"
+    When the user select the filter "Contextura" selecting the value "Delgada"
     And the user select the filter "Estatura" selecting the value "Mediana"
     And the user select the filter "Forma de la cara" selecting the value "Alargada"
     And the user select the filter "Color de cabello" selecting the value "Negro"
@@ -16,7 +16,7 @@ Scenario: Filter a card item by characteristics
     And the user select the filter "Forma de ojos" selecting the value "Pequeños"
     And the user select the filter "Forma de la Nariz" selecting the value "Perfilada"
     And the user select the filter "Forma de los Labios" selecting the value "Finos o reducidos"
-    # And the user select the filter "Color de los Dientes" selecting the value "Sin Información"
-    # And the user select the filter "Forma de los Dientes" selecting the value "Sin Información"
+    And the user select the filter "Color de los Dientes" selecting the value "Sin Información"
+    And the user select the filter "Forma de los Dientes" selecting the value "Sin Información"
     Then the user should see an item with the name filter in the page   
 
