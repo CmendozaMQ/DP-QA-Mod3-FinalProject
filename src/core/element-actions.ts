@@ -82,4 +82,8 @@ export class ElementActions {
         await driverInstance.Page.waitForSelector(locator);
         return await driverInstance.Page.innerText(locator);
     }
+
+    static async pressEnter(locator: string): Promise<void> {
+        await driverInstance.Page.press(locator, 'Enter');
+    }
 }

@@ -5,8 +5,6 @@ import { TESTDATA } from "../../config.app";
 import { enc_search } from "../../src/pages/enc_search.page";
 import { enc_content } from "../../src/pages/enc_content.page";
 
-//import { expect } from 'chai';
-
 setDefaultTimeout(60 * 1000);
 
 Given('the user sets the value {string} in the buscar field to search by name', async function (this: Context, searchName: string) {
@@ -38,24 +36,6 @@ When('the user select the filter {string} selecting the value {string}', async f
     this.scenarioContext['FILTERNAME'] = filterName;
     this.scenarioContext['FILTEROPTION'] = filterOption;
     await enc_search.FilterByOption(filterName, filterOption);
-});
-
-// And the user select the filter "Contextura" selecting the value "Delgada"
-// When('the user select the filter {string} option selecting the value {string}', async function (this: Context, filterName: string, filterOption: string) {
-//     this.scenarioContext['FILTERNAME'] = filterName;
-//     this.scenarioContext['FILTEROPTION'] = filterOption;
-//     await enc_search.FilterByOptionContexture(filterName, filterOption);
-// });
-
-
-//END FILTER by characteristics
-
-Given('the user click the nosotros option', async function () {
-    await enc_search.nosotrosOption();
-});
-
-Given('the user click the historias option', async function () {
-    await enc_search.historiasOption();
 });
 
 
