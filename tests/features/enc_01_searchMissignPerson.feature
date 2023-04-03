@@ -10,5 +10,4 @@ Scenario: Search an Card Item
     When the user select the estado de la persona as "todas"
     And the user select the time period "Más de 6 meses"
     And the user select the busqueda por departamento as "La Paz"
-    Then the user should see an item with the name filter in the page   
-
+    Then the user should see an item with the name "Linzen" filter in the page

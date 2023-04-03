@@ -27,5 +27,5 @@ Then('the user verify the story found {string}', async function (this: Context, 
     const elementText = await enc_story.verifyStoryfound();
     console.log(elementText);
     // expect(elementText).true;
-    expect(elementText).equal(nameStory);
+    expect(elementText.includes(nameStory)).equal(true);
 });

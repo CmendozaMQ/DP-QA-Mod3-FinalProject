@@ -1,6 +1,6 @@
 import { Given, setDefaultTimeout, Then, When,  } from "@cucumber/cucumber";
 import { Context } from "../../cucumber.config";
-// import { expect } from "chai";
+import { expect } from "chai";
 import { TESTDATA } from "../../config.app";
 import { enc_search } from "../../src/pages/enc_search.page";
 import { enc_content } from "../../src/pages/enc_content.page";
@@ -26,8 +26,14 @@ When('the user select the busqueda por departamento as {string}', async function
     await enc_search.searchByDepartment(searchDepartment);
 });
 
-Then('the user should see an item with the name filter in the page', async function () {
-    await enc_content.validateName();
+Then('the user should see an item with the name {string} filter in the page', async function (this: Context, searchName: string) {
+    this.scenarioContext['SEARCHNAME'] = searchName;
+    const personCardName = await enc_content.validateName();
+    console.log('personCardName:'+ personCardName);
+    // console.log('searchName:'+ searchName);
+    const temp = expect(personCardName).includes(searchName);
+    console.log('tempData:'+ JSON.stringify(temp));
+    expect(personCardName).includes(searchName);
 });
 
 //FILTER by characteristics

@@ -7,17 +7,18 @@ const sleep = (ms: number) => {
 const tie=0;
 
 class encuentralos_content extends BasePage {
-    private searchField: string = '//input[@placeholder="Buscar.."]';  
-    private personCardName : string ='//label[normalize-space()="Linzen lizeth Mariaca Colomo"]';     
+    private  contentCards: string ='(//div[@class="row"])[4]';    
+    // private searchField: string = '//input[@placeholder="Buscar.."]';  
     // private Name = (Name: string) => `//ul[@id="projects_list"]//span[text()="${Name}"]`;
 
     constructor(){
         super();
     }
 
-    async validateName(){        
-        await ElementActions.isElementVisible(this.personCardName);
-        console.log(this.personCardName);
+    async validateName(){                
+        const personCardName = await ElementActions.getElementText(this.contentCards);
+        console.log(personCardName);
+        return personCardName;
     }
 }
 

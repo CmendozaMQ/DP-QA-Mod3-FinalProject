@@ -18,5 +18,6 @@ Scenario: Filter a card item by characteristics
     And the user select the filter "Forma de los Labios" selecting the value "Finos o reducidos"
     And the user select the filter "Color de los Dientes" selecting the value "Sin Información"
     And the user select the filter "Forma de los Dientes" selecting the value "Sin Información"
-    Then the user should see an item with the name filter in the page   
+    # Then the user should see an item with the name filter in the page   
+    Then the user should see an item with the name "Linzen" filter in the page
 
