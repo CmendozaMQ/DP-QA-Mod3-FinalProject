@@ -4,7 +4,7 @@ import { BasePage } from "../base.page";
 const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-const tie=500;
+const tie=0;
 
 class AddProject extends BasePage {
     private nameTextField: string = '#edit_project_modal_field_name';

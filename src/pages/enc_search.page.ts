@@ -5,7 +5,7 @@ import { BasePage } from "./base.page";
 const sleep = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
-const tie=1000;
+const tie=0;
 
 class encuentralos_search extends BasePage {
     private searchField: string = '//input[@placeholder="Buscar.."]';   
