@@ -11,7 +11,7 @@ export class Driver {
 
     async start(url: string,browserName: string = 'chrome') {
         console.log('INIT ELEMENTS ENCUENTRALOS.ORG');
-        const browserInstance: BrowserType<{}> = await this.browserFactory(browserName);;
+        const browserInstance: BrowserType<{}> = await this.browserFactory(browserName);
         this.browser = await browserInstance.launch(
         {
             headless: false,
