@@ -1,10 +1,8 @@
 @ui-tests 
-#@api-tests
 Feature: Encuentralos.org Filter by Characteristics
 Background: open the web page and test the filters option by Characteristics
 
 @test 
-# @delete-project-api
 Scenario: Filter a card item by characteristics 
     Given the user select the filter "Genero" selecting the value "Femenino"
     When the user select the filter "Contextura" selecting the value "Delgada"
